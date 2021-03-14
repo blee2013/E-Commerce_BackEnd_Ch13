@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
           'product_name',
           'price',
           'stock',
-          'catogory_id']
+          'category_id']
         }
   })
     .then(dbtag => {
