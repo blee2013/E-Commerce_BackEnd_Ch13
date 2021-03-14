@@ -14,7 +14,7 @@ router.get('/', (req, res) => {
         'product_name',
         'price',
         'stock',
-        'catogory_id'
+        'category_id'
       ]
     }
   })
