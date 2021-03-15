@@ -26,8 +26,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-  console.log(req.params.id)
-  res.send("getting my id")
+  // console.log(req.params.id)
+  // res.send("getting my id")
 
   Category.findOne({
     where: {
@@ -64,7 +64,7 @@ router.post('/', (req, res) => {
 });
 
 router.put('/:id', (req, res) => {
-  console.log(req.params.id)
+  console.log(req);
   // update a category by its `id` value
   Category.update(req.body, {
     where:  {

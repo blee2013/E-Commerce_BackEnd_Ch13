@@ -8,11 +8,19 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   Product.findAll({
-    include: [Category, {
+    include: [ 
+    {
+      model: Category,
+      attributes: [
+        'category_name'
+      ]
+    },
+    {
       model: Tag,
-      through: ProductTag,
-      },
-    ],
+      attributes: [
+        'tag_name'
+      ]
+    }]
   })
     .then(dbproduct => res.json(dbproduct))
     .catch(err => {
@@ -44,13 +52,7 @@ router.get('/:id', (req, res) => {
         'id', 
         'tag_name']
       },
-      {
-        model: ProductTag,
-        attributes: [
-          'id', 
-          'product_id', 
-          'tag_id'],
-      }
+    
     ]
   })
     .then(dbproduct => {
